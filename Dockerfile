@@ -10,7 +10,13 @@ COPY . /app
 # https://docs.docker.com/guides/use-case/nlp/sentiment-analysis/ 4. Install the Python dependencies in the image
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Setting the environment variable for the port
+ENV PORT=5000
+
 # Using EXPOSE to expose the port 5000 from docker.docs
+# This is only a formality and does not actually expose the port
+# Reference: https://docs.docker.com/engine/reference/builder/#expose
+# Mentioned by Edric in the discord 
 EXPOSE 5000
 
 # Setting the environment variable for the flask app
